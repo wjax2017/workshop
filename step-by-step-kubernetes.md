@@ -42,3 +42,26 @@
 ### Open in browser
 
 `minikube service nginx`
+
+# Deploy CI/CD Pipeline
+
+`git clone git@github.com:wjax2017/kubernetes-ci-cd.git`
+
+`cd kubernetes-ci-cd`
+
+`kubectl apply -f manifests/registry.yml`
+
+`kubectl rollout status deployments/registry`
+
+
+## Setup a StatefulSet for Postgresql
+
+Show postgresql directory
+
+## Create namespace to postgresql
+
+`kubectl create namespae postgresql`
+
+## Deploy stuff
+
+`./run.sh`
