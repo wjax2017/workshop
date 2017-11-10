@@ -7,6 +7,7 @@ nodes
 etcd
 # lb
 nfs
+new_nodes
 
 # Set variables common for all OSEv3 hosts
 [OSEv3:vars]
@@ -909,11 +910,11 @@ osmaster.rails-experts.com openshift_public_hostname="{{ inventory_hostname }}" 
 [nodes]
 osmaster.rails-experts.com openshift_public_hostname="{{ inventory_hostname }}" openshift_hostname="{{ ansible_default_ipv4.address }}" openshift_schedulable=True openshift_node_labels="{'region': 'primary', 'zone': 'default'}"
 
-osnode[1:2].rails-experts.com openshift_public_hostname="{{ inventory_hostname }}" openshift_hostname="{{ ansible_default_ipv4.address }}" openshift_node_labels="{'region': 'primary', 'zone': 'default'}"
+osnode[1:3].rails-experts.com openshift_public_hostname="{{ inventory_hostname }}" openshift_hostname="{{ ansible_default_ipv4.address }}" openshift_node_labels="{'region': 'primary', 'zone': 'default'}"
 
 [nfs]
 osmaster.rails-experts.com openshift_public_hostname="{{ inventory_hostname }}" openshift_hostname="{{ ansible_default_ipv4.address }}"  
 
 [new_nodes]
-osnode[3:6].rails-experts.com openshift_public_hostname="{{ inventory_hostname }}" openshift_hostname="{{ ansible_default_ipv4.address }}" openshift_node_labels="{'region': 'primary', 'zone': 'default'}"
+osnode[4:6].rails-experts.com openshift_public_hostname="{{ inventory_hostname }}" openshift_hostname="{{ ansible_default_ipv4.address }}" openshift_node_labels="{'region': 'primary', 'zone': 'default'}"
 

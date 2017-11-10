@@ -11,7 +11,7 @@ MAINTAINER Example McAuthor
 
 # Update the repository sources list
 RUN apt-get update
-
+RUN apt-get install vim -y
 ################## BEGIN INSTALLATION ######################
 # Install MongoDB Following the Instructions at MongoDB Docs
 # Ref: http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/

@@ -8,7 +8,7 @@ etcd
 # lb
 nfs
 # glusterfs
-# new_nodes
+new_nodes
 
 # Set variables common for all OSEv3 hosts
 [OSEv3:vars]
@@ -916,8 +916,8 @@ osnode[1:3].rails-experts.com openshift_public_hostname="{{ inventory_hostname }
 [nfs]
 osmaster.rails-experts.com openshift_public_hostname="{{ inventory_hostname }}" openshift_hostname="{{ ansible_default_ipv4.address }}"  
 
-# [new_nodes]
-# osnode[4:6].rails-experts.com openshift_public_hostname="{{ inventory_hostname }}" openshift_hostname="{{ ansible_default_ipv4.address }}" openshift_node_labels="{'region': 'primary', 'zone': 'default'}"
+[new_nodes]
+osnode[4:6].rails-experts.com openshift_public_hostname="{{ inventory_hostname }}" openshift_hostname="{{ ansible_default_ipv4.address }}" openshift_node_labels="{'region': 'primary', 'zone': 'default'}"
 
 # [glusterfs]
 # osnode[4:6].rails-experts.com glusterfs_devices='[ "/dev/sdb" ]'
