@@ -1,8 +1,8 @@
 #!/bin/bash
 
-kubectl delete statefulset pgset
-kubectl delete sa pgset-sa
-kubectl delete pvc pgset-pvc
-kubectl delete pv pv1
-kubectl delete service pgset pgset-master pgset-replica
-kubectl delete pod pgset-0 pgset-1
+oc delete statefulset pgset
+oc delete sa pgset-sa
+oc delete pvc pgset-pvc
+oc delete pv pv1
+oc delete service pgset pgset-master pgset-replica
+oc delete pod pgset-0 pgset-1

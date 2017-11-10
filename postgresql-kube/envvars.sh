@@ -5,18 +5,18 @@
 #
 
 export CCP_CLI=oc
-export NAMESPACE=postgresql
+export NAMESPACE=default
 export PV_PATH=/exports/postgresql
-export NFS_IP=94.130.54.80
-export NFS_HOST_NAME=osmaster.rails-experts.com
-export LOCAL_IP=94.130.54.80
+export NFS_IP=192.168.64.5
+export NFS_HOST_NAME=192.168.64.5
+export LOCAL_IP=192.168.64.5
 export DATABASE=workshopdb
 
-export PG_MASTER_PASSWORD=asdjfhlsdhflhasdf
+export PG_MASTER_PASSWORD=akjsdhfjklahsdkjfhjkas
 export PG_PRIMARY_USER=motu
 export PG_USER=admin
-export PG_PASSWORD=asöldjfsdhjfsfdasd
-export PG_ROOT_PASSWORD=8asdf67858asd5f8
+export PG_PASSWORD=jjkdhfjhsdjkfhsdf
+export PG_ROOT_PASSWORD=fsdfljsdflj
 
 
 if [ -v $CCP_IMAGE_TAG ]; then
