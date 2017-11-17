@@ -235,21 +235,8 @@ t4 = Thread.new do
   osnode3.bootstrap!
 end
 
-t5 = Thread.new do
-  osnode4.bootstrap!
-end
-t6 = Thread.new do
-  osnode5.bootstrap!
-end
-
-t7 = Thread.new do
-  osnode6.bootstrap!
-end
 
 t1.join
 t2.join
 t3.join
 t4.join
-t5.join
-t6.join
-t7.join

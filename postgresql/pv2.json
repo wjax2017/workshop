@@ -10,12 +10,12 @@
     },
     "spec": {
         "capacity": {
-            "storage": "200Gi"
+            "storage": "100Gi"
         },
-        "accessModes": ["ReadWriteMany"],
+        "accessModes": ["ReadWriteOnce"],
         "nfs": {
-            "path": "$PV_PATH",
-            "server": "$NFS_HOST_NAME"
+            "path": "/exports/metrics-new",
+            "server": "osmaster.rails-experts.com"
         },
         "persistentVolumeReclaimPolicy": "Retain"
     }
