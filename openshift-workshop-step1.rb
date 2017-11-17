@@ -184,42 +184,24 @@ osmaster << { ip: '94.130.54.80',
               post_install: post_install }      # will be executed *locally* at the end
 
 osnode1 << { ip: '94.130.51.34',
-              template: template,               # string will be parsed by erubis
+              template: storage_node_template,               # string will be parsed by erubis
               hostname: 'osnode1',              # sets hostname
               public_keys: '~/.ssh/id_rsa.pub', # will be copied to your system
               post_install: post_install }      # will be executed *locally* at the end
 
 osnode2 << { ip: '94.130.51.32',
-              template: template,               # string will be parsed by erubis
+              template: storage_node_template,               # string will be parsed by erubis
               hostname: 'osnode2',              # sets hostname
               public_keys: '~/.ssh/id_rsa.pub', # will be copied to your system
               post_install: post_install }      # will be executed *locally* at the end
 
 osnode3 << { ip: '94.130.101.59',
-              template: template,               # string will be parsed by erubis
+              template: storage_node_template,               # string will be parsed by erubis
               hostname: 'osnode3',              # sets hostname
               public_keys: '~/.ssh/id_rsa.pub', # will be copied to your system
               post_install: post_install }      # will be executed *locally* at the end
 
-osnode4 << { ip: '188.40.68.173',
-              template: storage_node_template,  # string will be parsed by erubis
-              hostname: 'osnode4',              # sets hostname
-              public_keys: '~/.ssh/id_rsa.pub', # will be copied to your system
-              post_install: post_install }      # will be executed *locally* at the end
-
-osnode5 << { ip: '88.198.206.46',
-              template: storage_node_template,  # string will be parsed by erubis
-              hostname: 'osnode5',              # sets hostname
-              public_keys: '~/.ssh/id_rsa.pub', # will be copied to your system
-              post_install: post_install }      # will be executed *locally* at the end
-
-osnode6 << { ip: '5.9.12.51',
-              template: storage_node_template,  # string will be parsed by erubis
-              hostname: 'osnode6',              # sets hostname
-              public_keys: '~/.ssh/id_rsa.pub', # will be copied to your system
-              post_install: post_install }      # will be executed *locally* at the end
-
-t1 = Thread.new do
+              t1 = Thread.new do
   osmaster.bootstrap!
 end
 
