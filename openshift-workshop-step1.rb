@@ -189,8 +189,8 @@ osnode1 << { ip: '94.130.51.34',
               public_keys: '~/.ssh/id_rsa.pub', # will be copied to your system
               post_install: post_install }      # will be executed *locally* at the end
 
-osnode2 << { ip: '94.130.51.32',
-              template: storage_node_template,               # string will be parsed by erubis
+osnode2 << { ip: '46.4.102.94',
+              template: storage_node_template,  # string will be parsed by erubis
               hostname: 'osnode2',              # sets hostname
               public_keys: '~/.ssh/id_rsa.pub', # will be copied to your system
               post_install: post_install }      # will be executed *locally* at the end
@@ -201,7 +201,25 @@ osnode3 << { ip: '94.130.101.59',
               public_keys: '~/.ssh/id_rsa.pub', # will be copied to your system
               post_install: post_install }      # will be executed *locally* at the end
 
-              t1 = Thread.new do
+osnode4 << { ip: '94.130.51.32',
+              template: template,               # string will be parsed by erubis
+              hostname: 'osnode4',              # sets hostname
+              public_keys: '~/.ssh/id_rsa.pub', # will be copied to your system
+              post_install: post_install }      # will be executed *locally* at the end
+
+osnode5 << { ip: '46.4.100.99',
+              template: template,  # string will be parsed by erubis
+              hostname: 'osnode5',              # sets hostname
+              public_keys: '~/.ssh/id_rsa.pub', # will be copied to your system
+              post_install: post_install }      # will be executed *locally* at the end
+
+osnode6 << { ip: '78.46.43.73',
+              template: template,  # string will be parsed by erubis
+              hostname: 'osnode6',              # sets hostname
+              public_keys: '~/.ssh/id_rsa.pub', # will be copied to your system
+              post_install: post_install }      # will be executed *locally* at the end
+
+t1 = Thread.new do
   osmaster.bootstrap!
 end
 
@@ -217,8 +235,23 @@ t4 = Thread.new do
   osnode3.bootstrap!
 end
 
+t5= Thread.new do
+  osnode4.bootstrap!
+end
+
+t6 = Thread.new do
+  osnode5.bootstrap!
+end
+
+t7 = Thread.new do
+  osnode6.bootstrap!
+end
+
 
 t1.join
 t2.join
 t3.join
 t4.join
+t5.join
+t6.join
+t7.join
