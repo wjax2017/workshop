@@ -177,48 +177,55 @@ post_install = <<EOT
 EOT
 
 # duplicate entry for each system
-osmaster << { ip: '94.130.54.80',
-              template: template,        # string will be parsed by erubis
-              hostname: 'osmaster',             # sets hostname
-              public_keys: '~/.ssh/id_rsa.pub', # will be copied to your system
-              post_install: post_install }      # will be executed *locally* at the end
+osmaster << {
+  ip: '94.130.54.80',
+  template: template,               # string will be parsed by erubis
+  hostname: 'osmaster',             # sets hostname
+  public_keys: '~/.ssh/id_rsa.pub', # will be copied to your system
+  post_install: post_install        # will be executed *locally* at the end
+}
 
-osnode1 << { ip: '94.130.51.34',
-              template: storage_node_template,               # string will be parsed by erubis
-              hostname: 'osnode1',              # sets hostname
-              public_keys: '~/.ssh/id_rsa.pub', # will be copied to your system
-              post_install: post_install }      # will be executed *locally* at the end
+osnode1 << {
+  ip: '94.130.51.34',
+  template: storage_node_template,  # string will be parsed by erubis
+  hostname: 'osnode1',              # sets hostname
+  public_keys: '~/.ssh/id_rsa.pub', # will be copied to your system
+  post_install: post_install        # will be executed *locally* at the end
+}
 
-osnode2 << { ip: '94.130.51.32',
-              template: storage_node_template,               # string will be parsed by erubis
-              hostname: 'osnode2',              # sets hostname
-              public_keys: '~/.ssh/id_rsa.pub', # will be copied to your system
-              post_install: post_install }      # will be executed *locally* at the end
+osnode2 << {
+  ip: '94.130.51.32',
+  template: storage_node_template,  # string will be parsed by erubis
+  hostname: 'osnode2',              # sets hostname
+  public_keys: '~/.ssh/id_rsa.pub', # will be copied to your system
+  post_install: post_install        # will be executed *locally* at the end
+}
 
-osnode3 << { ip: '94.130.101.59',
-              template: storage_node_template,               # string will be parsed by erubis
-              hostname: 'osnode3',              # sets hostname
-              public_keys: '~/.ssh/id_rsa.pub', # will be copied to your system
-              post_install: post_install }      # will be executed *locally* at the end
+osnode3 << {
+  ip: '94.130.101.59',
+  template: storage_node_template,  # string will be parsed by erubis
+  hostname: 'osnode3',              # sets hostname
+  public_keys: '~/.ssh/id_rsa.pub', # will be copied to your system
+  post_install: post_install        # will be executed *locally* at the end
+}
 
-              t1 = Thread.new do
+# t1 = Thread.new do
   osmaster.bootstrap!
-end
+# end
 
-t2 = Thread.new do
+# t2 = Thread.new do
   osnode1.bootstrap!
-end
+# end
 
-t3 = Thread.new do
+# t3 = Thread.new do
   osnode2.bootstrap!
-end
+# end
 
-t4 = Thread.new do
+# t4 = Thread.new do
   osnode3.bootstrap!
-end
+# end
 
-
-t1.join
-t2.join
-t3.join
-t4.join
+# t1.join
+# t2.join
+# t3.join
+# t4.join
