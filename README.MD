@@ -25,3 +25,9 @@ https://about.gitlab.com/2017/05/16/devops-containers-gitlab-openshift/
 (Gitlab)[https://github.com/gitlabhq/omnibus-gitlab/blob/master/docker/openshift-template.json]
 
 [openshift-acme for Letsencrypt](https://github.com/tnozicka/openshift-acme)
+
+# Videos
+
+https://www.youtube.com/watch?v=7TOWLerX0Ps
+
+https://www.youtube.com/watch?v=9C6YeyyUUmI
